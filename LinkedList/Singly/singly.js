@@ -78,6 +78,7 @@ class SinglyLinkedList {
 
   pop() {
     this.head = this.head.next;
+    this.length--;
   }
 
   popAt(index) {
