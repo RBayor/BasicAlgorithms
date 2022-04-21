@@ -39,13 +39,70 @@ func (l *SinglyLinkedList) pushLast(value int) {
 
 }
 
+func (l *SinglyLinkedList) pushAt(value, index int) {
+
+	if l.length == 0 {
+		l.pushFirst(value)
+		return
+	}
+
+	if l.length < index {
+		return
+	}
+
+	node := &LinkedListNode{value: value}
+	current := l.head
+	var previous *LinkedListNode
+
+	for i := 0; i < index; i++ {
+		previous = current
+		current = current.next
+	}
+
+	node.next = current
+	previous.next = node
+	l.length++
+}
+
+func (l SinglyLinkedList) getFirst() string {
+	return fmt.Sprintf("%d", l.head.value)
+}
+
+func (l SinglyLinkedList) getAt(index int) string {
+	if index < 0 || index >= l.length {
+		return ""
+	}
+
+	if index == 0 {
+		return l.getFirst()
+
+	}
+
+	current := l.head
+	for i := 0; i < index; i++ {
+		current = current.next
+	}
+
+	return fmt.Sprintf("%d", current.value)
+}
+
+func (l SinglyLinkedList) getLast() int {
+	current := l.head
+
+	for current.next != nil {
+		current = current.next
+	}
+
+	return current.value
+}
+
 func (l *SinglyLinkedList) pop() {
 	l.head = l.head.next
 	l.length--
 }
 
 func (l *SinglyLinkedList) popAt(index int) {
-	if index < 0 || index > l.length {
+	if index < 0 || index >= l.length {
 		return
 	}
 
@@ -119,7 +176,11 @@ func main() {
 	list.pushFirst(100)
 	list.pushFirst(45)
 	list.pushLast(90)
+	list.pushAt(49, 3)
 
+	// fmt.Println(list.getFirst())
+	// fmt.Println(list.getAt(7))
+	fmt.Println(list.getLast())
 	list.log()
 	// list.popAt(20)
 	// list.popValue(45)
