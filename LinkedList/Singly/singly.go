@@ -180,7 +180,7 @@ func main() {
 
 	// fmt.Println(list.getFirst())
 	// fmt.Println(list.getAt(7))
-	fmt.Println(list.getLast())
+	// fmt.Println(list.getLast())
 	list.log()
 	// list.popAt(20)
 	// list.popValue(45)
