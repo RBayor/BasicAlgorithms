@@ -10,3 +10,17 @@ Feel free to fork and contribute!
 Corrections and improvements are welcome.
 
 You can also make suggestions on algrithms you'd like to see added.
+
+#### Contents
+
+- Linked Lists/
+
+  - double linked list
+  - singly linked list
+
+- Sort Algorithms/
+
+  - Bubble Sort
+  - Insertion Sort
+  - Merge Sort
+  - Quick Sort
