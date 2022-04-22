@@ -1,3 +1,8 @@
+/**
+ * Implementation of Merge Sort algorithm.
+ * @param {Array} arr
+ * @returns sorted array (asc)
+ */
 const mergeSort = (arr) => {
   if (arr.length <= 1) return arr;
 

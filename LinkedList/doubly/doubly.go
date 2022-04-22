@@ -2,6 +2,7 @@ package main
 
 import "fmt"
 
+//Implementation of the Doubly Linked List.
 type LinkedListNode struct {
 	value    int
 	next     *LinkedListNode

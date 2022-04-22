@@ -1,3 +1,8 @@
+/**
+ * Implementation of optimized Bubble Sort algorithm
+ * @param {Array} array
+ * @returns sorted array (asc)
+ */
 const bubbleSort = (arr) => {
   let swapped;
   do {

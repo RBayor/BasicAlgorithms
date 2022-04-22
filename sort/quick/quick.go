@@ -5,6 +5,9 @@ import (
 	"time"
 )
 
+//Implementation of the Quick Sort algorithm.
+//It takes an array of integers and sorts it in ascending order.
+//It returns the sorted array.
 func quickSort(arr []int) []int {
 	if len(arr) <= 1 {
 		return arr

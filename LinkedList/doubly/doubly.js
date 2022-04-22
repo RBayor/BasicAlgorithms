@@ -6,6 +6,9 @@ class LinkedListNode {
   }
 }
 
+/**
+ * Implementation of a doubly linked list
+ */
 class DoublyLinkedList {
   constructor() {
     this.head = null;

@@ -1,3 +1,8 @@
+/**
+ * Implementation of Quick sort algorithm.
+ * @param {Array} arr
+ * @returns sorted array (asc)
+ */
 const quickSort = (arr) => {
   if (arr.length <= 1) return arr;
 

@@ -5,6 +5,10 @@ import (
 	"time"
 )
 
+// Implementation of the Merge Sort algorithm.
+// It takes an array of integers and sorts it in ascending order.
+// It uses the merge function to merge two sorted arrays.
+// It returns the sorted array.
 func mergeSort(arr []int) []int {
 	if len(arr) <= 1 {
 		return arr

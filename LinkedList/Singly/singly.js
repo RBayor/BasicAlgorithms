@@ -5,6 +5,9 @@ class LinkedListNode {
   }
 }
 
+/**
+ * Implementation of a singly linked list
+ */
 class SinglyLinkedList {
   constructor() {
     this.head = null;

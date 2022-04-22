@@ -2,6 +2,7 @@ package main
 
 import "fmt"
 
+//Implement a singly linked list
 type LinkedListNode struct {
 	value int
 	next  *LinkedListNode

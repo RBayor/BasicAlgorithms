@@ -5,6 +5,8 @@ import (
 	"time"
 )
 
+// Implementation of the Bubble Sort algorithm.
+// It takes an array of integers and sorts it in ascending order.
 func bubble(arr []int) []int {
 	for i := 0; i < len(arr); i++ {
 		for j := 0; j < len(arr)-i-1; j++ {

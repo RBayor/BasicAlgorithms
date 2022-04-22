@@ -5,6 +5,9 @@ import (
 	"time"
 )
 
+//Implementation of the Insertion Sort algorithm.
+//It takes an array of integers and sorts it in ascending order.
+//It returns the sorted array.
 func insertionSort(arr []int) []int {
 
 	for i := 0; i < len(arr); i++ {

@@ -1,3 +1,8 @@
+/**
+ * Implementation of Insertion sort.
+ * @param {Array} arr
+ * @returns sorted array (asc)
+ */
 const insertionSort = (arr) => {
   for (let i = 1; i < arr.length; i++) {
     let currentVal = arr[i];
