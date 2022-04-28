@@ -1,4 +1,4 @@
-# Basic Algorithms in JavaScrip and Go
+# Basic Algorithms in various languages
 
 ### AIM
 
@@ -12,6 +12,8 @@ Corrections and improvements are welcome.
 You can also make suggestions on algrithms you'd like to see added.
 
 #### Contents
+
+- BinaryTree
 
 - Linked Lists/
 
