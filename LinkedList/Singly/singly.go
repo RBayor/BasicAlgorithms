@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+)
 
 //Implement a singly linked list
 type LinkedListNode struct {
@@ -170,25 +173,13 @@ func (l SinglyLinkedList) log() {
 func main() {
 	list := SinglyLinkedList{}
 
-	list.pushFirst(14)
-	list.pushFirst(5)
-	list.pushFirst(7)
-	list.pushFirst(87)
-	list.pushFirst(100)
-	list.pushFirst(45)
-	list.pushLast(90)
-	list.pushAt(49, 3)
+	start := time.Now()
+	for i := 0; i < 1000000; i++ {
+		list.pushFirst(i)
+	}
+	duration := time.Since(start)
 
-	// fmt.Println(list.getFirst())
-	// fmt.Println(list.getAt(7))
-	// fmt.Println(list.getLast())
-	list.log()
-	// list.popAt(20)
-	// list.popValue(45)
-	// list.clear()
-	// list.pop()
-	// list.log()
-
-	// fmt.Println(list)
+	fmt.Println("Time taken:", duration)
+	fmt.Println("length:", list.length)
 
 }
