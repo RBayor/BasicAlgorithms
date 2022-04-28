@@ -3,9 +3,9 @@
  */
 class HashTable {
   constructor() {
-    this.table = new Array(17011);
+    this.table = new Array(136163);
     this.numOfItems = 0;
-    this.load = 0;
+    this.loadFactor = 0;
   }
 
   #hashKeyToIndex = (key) => {
@@ -39,10 +39,10 @@ class HashTable {
   };
 
   setItem = (key, value) => {
-    this.load = this.numOfItems / this.table.length;
+    this.loadFactor = this.numOfItems / this.table.length;
     const index = this.#hashKeyToIndex(key);
 
-    if (this.load > 0.8 && this.table[index]) {
+    if (this.loadFactor > 0.8 && this.table[index]) {
       this.#resize(key, value);
     }
 
@@ -102,35 +102,28 @@ class HashTable {
 const t = new HashTable();
 
 console.time("hashTable");
+
 console.time("setItem");
-// t.setItem("homer-1", "first");
-// t.setItem("bart", "second");
-// t.setItem("lisa", "third");
-// t.setItem("marge", "fifth");
-// t.setItem("homer", "fourth");
-// t.setItem("krusty", "sixth");
-// t.setItem("burns", "seventh");
-// t.setItem("burns", "choco");
-for (let i = 0; i <= 1000000; i++) {
+
+for (let i = 0; i < 1000000; i++) {
   t.setItem(`item-${i}`, `data-${i}`);
 }
+
 console.timeEnd("setItem");
 
-// console.time("getItem");
-// t.getItem("homer");
-// t.getItem("bart");
-// t.getItem("bart");
-// t.getItem("lisa");
-// t.getItem("marge");
-// t.getItem("krusty");
-// t.getItem("burns");
-// t.getItem("burns");
-// console.timeEnd("getItem");
+console.time("getItem");
+
+for (let i = 0; i < 1000000; i++) {
+  t.getItem(`item-${i}`);
+}
+
+console.timeEnd("getItem");
+
 console.timeEnd("hashTable");
 
-// console.table(t.table);
+console.table(t.table);
 console.table({
   "table size": t.table.length,
   "num of items:": t.numOfItems,
-  load: t.load,
+  load: t.loadFactor,
 });
