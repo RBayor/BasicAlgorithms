@@ -2,8 +2,9 @@ package main
 
 import (
 	"fmt"
-	"time"
 )
+
+var count int
 
 type BinaryNode struct {
 	left  *BinaryNode
@@ -44,23 +45,47 @@ func (n *BinaryNode) insert(data int) {
 	}
 }
 
+func (n *BinaryNode) search(num int) bool {
+	count++
+
+	if n == nil {
+		return false
+	}
+
+	if num == n.data {
+		return true
+	}
+
+	if num > n.data {
+		return n.right.search(num)
+	} else {
+		return n.left.search(num)
+	}
+
+}
+
 func main() {
 	tree := &BinaryTree{}
-	start := time.Now()
-	sign := false
+	tree.insert(10).insert(20).insert(50).insert(3).insert(18)
 
-	for i := 0; i < 100000; i++ {
-		if sign {
-			tree.insert(-i)
-			sign = false
-		} else {
-			tree.insert(i)
-			sign = true
-		}
+	fmt.Println(tree.root.search(18))
+	fmt.Println(count)
 
-	}
-	duration := time.Since(start)
+	// start := time.Now()
+	// sign := false
 
-	fmt.Println("Time taken:", duration)
+	// for i := 0; i < 100000; i++ {
+	// 	if sign {
+	// 		tree.insert(-i)
+	// 		sign = false
+	// 	} else {
+	// 		tree.insert(i)
+	// 		sign = true
+	// 	}
+
+	// }
+	// duration := time.Since(start)
+
+	// fmt.Println("Time taken:", duration)
 
 }
