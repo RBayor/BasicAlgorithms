@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	numIterations := 1
+	numIterations := 10
 	creationTimes := []float64{}
 	sortTimes := []float64{}
 
