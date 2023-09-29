@@ -12,7 +12,15 @@ func main() {
 	numIterations := 1
 	creationTimes := []float64{}
 	sortTimes := []float64{}
-	messyArr, err := readSortableArray()
+
+	if len(os.Args) != 2 {
+		fmt.Println("Usage: executable_name <data_path>")
+		os.Exit(1)
+	}
+
+	filePath := os.Args[1]
+
+	messyArr, err := readSortableArray(filePath)
 	if err != nil {
 		fmt.Println("Failed to read file:", err)
 		return
@@ -72,15 +80,15 @@ func generateRandomArray(size int) []int {
 	return arr
 }
 
-func readSortableArray() ([]int, error) {
-	filePath := "/Users/rb/Documents/Projects/GeneralProjects/BasicAlgorithms/data.json"
-	file, err := os.Open(filePath)
+func readSortableArray(filepath string) ([]int, error) {
+
+	file, err := os.Open(filepath)
 	if err != nil {
 		return nil, err
 	}
 	defer file.Close()
 
-	data, err := os.ReadFile(filePath)
+	data, err := os.ReadFile(filepath)
 	if err != nil {
 		return nil, err
 	}

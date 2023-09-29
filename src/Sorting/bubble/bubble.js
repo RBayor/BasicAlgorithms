@@ -68,7 +68,7 @@ const generateRandomArray = (size) => {
 };
 
 const readSortableArray = async () => {
-  const filePath = path.join(__dirname, "../../../data.json");
+  const filePath = path.join(__dirname, "./data.json");
 
   try {
     const res = JSON.parse(await fs.readFile(filePath, "utf8"));
