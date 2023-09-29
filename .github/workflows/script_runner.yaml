@@ -1,0 +1,38 @@
+name: Run My Script
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "20"
+
+      - name: Set up Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: "1.21.1"
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          version: 1.0.0
+
+      - name: Run script.sh
+        run: |
+          chmod +x script.sh
+          ./script.sh
+
+      - name: Store output file
+        run: |
+          mv output.txt dist/
