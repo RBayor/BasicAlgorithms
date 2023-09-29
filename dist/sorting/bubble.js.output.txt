@@ -1,0 +1,19 @@
+
+
+
+
+
+{
+  "Sort Type": "Bubble Sort",
+  "Array Size": "100,000",
+  Iterations: "1",
+  ____________a____________: "____________a____________",
+  "Avg Creation Time (ms)": "3.0244ms",
+  "Avg Sort Time (ms)": "36885.7072ms",
+  ____________b____________: "____________b____________",
+  "Avg Creation Time (s)": " 0.0030s",
+  "Avg Sort Time (s)": "36.8857s",
+  ____________c____________: "____________c____________",
+  "Creation Times (s)": "0.0030",
+  "Sort Times (s)": "36.8857"
+}

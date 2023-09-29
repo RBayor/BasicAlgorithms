@@ -122,15 +122,21 @@ class SinglyLinkedList {
 
 let list = new SinglyLinkedList();
 
-list.pushFirst(14);
-list.pushFirst(5);
-list.pushFirst(7);
-list.pushLast(87);
-list.pushAt(100, 3);
-list.pushAt(45, 0);
-list.log();
+console.time("linked-list");
+for (let i = 0; i < 1000000; i++) {
+  list.pushFirst(i);
+}
+console.timeEnd("linked-list");
+console.log("length", list.length);
+// list.pushFirst(14);
+// list.pushFirst(5);
+// list.pushFirst(7);
+// list.pushLast(87);
+// list.pushAt(100, 3);
+// list.pushAt(45, 0);
+// list.log();
 // console.log(list.getFirst());
 // console.log(list.getLast());
-console.log(list.getAt(8));
+// console.log(list.getAt(8));
 // list.popAt(1);
 // list.log();

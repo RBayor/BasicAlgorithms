@@ -100,12 +100,13 @@ class HashTable {
 }
 
 const t = new HashTable();
+const len = 10_000;
 
 console.time("hashTable");
 
 console.time("setItem");
 
-for (let i = 0; i < 1000000; i++) {
+for (let i = 0; i < len; i++) {
   t.setItem(`item-${i}`, `data-${i}`);
 }
 
@@ -113,7 +114,7 @@ console.timeEnd("setItem");
 
 console.time("getItem");
 
-for (let i = 0; i < 1000000; i++) {
+for (let i = 0; i < len; i++) {
   t.getItem(`item-${i}`);
 }
 
@@ -121,7 +122,7 @@ console.timeEnd("getItem");
 
 console.timeEnd("hashTable");
 
-console.table(t.table);
+// console.table(t.table);
 console.table({
   "table size": t.table.length,
   "num of items:": t.numOfItems,
