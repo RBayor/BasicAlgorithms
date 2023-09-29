@@ -2,7 +2,7 @@ const fs = require("fs").promises;
 const path = require("path");
 
 const runBenchmark = async () => {
-  const numIterations = 10;
+  const numIterations = 1;
   const creationTimes = [];
   const sortTimes = [];
   const messyArr = await readSortableArray();

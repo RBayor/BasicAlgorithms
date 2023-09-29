@@ -33,6 +33,14 @@ jobs:
           chmod +x script.sh
           ./script.sh
 
-      - name: Store output file
+      # - name: Store output file
+      #   run: |
+      #     find . -type f -name "*.output.txt"
+
+      - name: Commit and push results
         run: |
-          mv output.txt dist/
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add .
+          git commit -m "Add output files"
+          git push origin main
