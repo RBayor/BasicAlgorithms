@@ -80,7 +80,7 @@ run_go_executable() {
     dir_path="${file%/*}" # Get the directory path
 
     data_path=$(find "$dir_path" -type f -name "*.json" -print -quit)
-    exec_file=$(find "$dir_path" -type f -perm +111 -print -quit)
+    exec_file=$(find "$dir_path" -type f -name "*.json" -print -quit)
 
     echo
     echo "Running $exec_file with $engine_name... $version"
@@ -127,7 +127,7 @@ build_go_files(){
     base_name="$(basename "$file" .js)"
     echo "⚙️ Building go binary for $base_name"
     output_name="${file%.go}"
-    go build -o "$output_name" "$file"
+    go build -o "$output_name.exe" "$file"
   done
   echo "✅ Done building go binary"
 }
