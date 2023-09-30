@@ -12,8 +12,8 @@ run_sorting_files() {
   build_go_files "$go_files" &
   wait
   
-  run_with_engine "Node.js" "node" "$js_files"&
-  run_with_engine "Bun.sh" "bun" "$js_files"&
+  run_with_engine "Node.js" "node" "$js_files"
+  run_with_engine "Bun.sh" "bun" "$js_files"
   run_with_engine "Golang" "go" "$go_files" 
 
 }
