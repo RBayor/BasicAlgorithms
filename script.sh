@@ -110,6 +110,7 @@ run_go_executable() {
       echo "Executable found but data missing in $dir_path"
     elif [  -f "$data_path" ]; then
       echo "Data found but executable missing in $dir_path"
+      echo "$(ls -l "$dir_path")"
     else
       echo "Executable or data missing in $dir_path"
     fi
