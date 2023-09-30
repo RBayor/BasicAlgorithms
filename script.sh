@@ -86,10 +86,12 @@ run_go_executable() {
     echo "Running $exec_file with $engine_name... $version"
     echo
 
+    echo "Executable: $exec_file"
+    echo "Data: $data_path"
+
     # Check if an executable and data were found
     if [ -n "$exec_file" ] && [ -n "$data_path" ]; then
       data_path=$(realpath "$data_path") # Get the absolute path
-      echo "Data path: $data_path"
 
       # output=$("$exec_file" "$data_path" 2>&1) # Run the executable
        output=$(echo -e "$version\n$("$exec_file" "$data_path" 2>&1)")
