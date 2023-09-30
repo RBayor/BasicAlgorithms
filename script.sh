@@ -9,11 +9,10 @@ run_sorting_files() {
   local go_files=$(find ./src/Sorting/bubble -type f -name "*.go") # Find all Go files in bubble sort dir for now
 
   # TODO: Add a function to execute data-gen.js to generate data.json files
-  build_go_files "$go_files" &
-  wait
+  build_go_files "$go_files"
   
-  run_with_engine "Node.js" "node" "$js_files"
-  run_with_engine "Bun.sh" "bun" "$js_files"
+  # run_with_engine "Node.js" "node" "$js_files"
+  # run_with_engine "Bun.sh" "bun" "$js_files"
   run_with_engine "Golang" "go" "$go_files" 
 
 }
