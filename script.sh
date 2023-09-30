@@ -89,6 +89,7 @@ run_go_executable() {
     # Check if an executable and data were found
     if [ -n "$exec_file" ] && [ -n "$data_path" ]; then
       data_path=$(realpath "$data_path") # Get the absolute path
+      echo "Data path: $data_path"
 
       # output=$("$exec_file" "$data_path" 2>&1) # Run the executable
        output=$(echo -e "$version\n$("$exec_file" "$data_path" 2>&1)")
@@ -104,6 +105,11 @@ run_go_executable() {
 
       echo -e "\n\n$output" >> "$output_filepath" # Append to the file
       echo "Output appended to: $output_filepath"
+    
+    elif [  -f "$exec_file" ]; then
+      echo "Executable found but data missing in $dir_path"
+    elif [  -f "$data_path" ]; then
+      echo "Data found but executable missing in $dir_path"
     else
       echo "Executable or data missing in $dir_path"
     fi
