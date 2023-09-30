@@ -13,7 +13,7 @@ run_sorting_files() {
   
   # run_with_engine "Node.js" "node" "$js_files"
   # run_with_engine "Bun.sh" "bun" "$js_files"
-  run_with_engine "Golang" "go" "$go_files" 
+  run_with_engine "Golang" "go run" "$go_files" 
 
 }
 
@@ -34,7 +34,7 @@ run_with_engine() {
   if [ "$engine_name" == "Node.js" ] || [ "$engine_name" == "Bun.sh" ]; then
     run_with_node_or_bun "$engine_name" "$engine_command" "$files" "$version"
   else
-    run_go_executable "$engine_name" "$files" "$version"
+    run_go_executable "$engine_name" "$engine_command" "$files" "$version"
   fi
 }
 
@@ -72,8 +72,9 @@ run_with_node_or_bun() {
 
 run_go_executable() {
   local engine_name="$1"
-  local files="$2"
-  local version="$3"
+  local engine_command="$2"
+  local files="$3"
+  local version="$4"
 
   for file in $files; do
     base_name="$(basename "$file" .go)"
@@ -94,7 +95,7 @@ run_go_executable() {
       data_path=$(realpath "$data_path") # Get the absolute path
 
       # output=$("$exec_file" "$data_path" 2>&1) # Run the executable
-       output=$(echo -e "$version\n$("$exec_file" "$data_path" 2>&1)")
+       output=$(echo -e "$version\n$("$engine_command" "$file" "$data_path" 2>&1)")
 
       # Display the output on the console
       echo "$output"
