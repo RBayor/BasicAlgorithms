@@ -9,11 +9,12 @@ run_sorting_files() {
   local go_files=$(find ./src/Sorting/bubble -type f -name "*.go") # Find all Go files in bubble sort dir for now
 
   # TODO: Add a function to execute data-gen.js to generate data.json files
-  build_go_files "$go_files"
+  # build_go_files "$go_files"
   
   # run_with_engine "Node.js" "node" "$js_files"
   # run_with_engine "Bun.sh" "bun" "$js_files"
-  run_with_engine "Golang" "go run" "$go_files" 
+  # run_with_engine "Golang" "go" "$go_files"
+  
 
 }
 
@@ -34,7 +35,7 @@ run_with_engine() {
   if [ "$engine_name" == "Node.js" ] || [ "$engine_name" == "Bun.sh" ]; then
     run_with_node_or_bun "$engine_name" "$engine_command" "$files" "$version"
   else
-    run_go_executable "$engine_name" "$engine_command" "$files" "$version"
+    run_go_executable "$engine_name" "$files" "$version"
   fi
 }
 
@@ -61,7 +62,7 @@ run_with_node_or_bun() {
     echo
 
     # Save the output to a file (append mode)
-    output_filename="${base_name}.output.txt"
+    output_filename="${base_name}.js.txt"
     output_filepath="$dir_path/$output_filename"
     mkdir -p "$dir_path"
 
@@ -72,48 +73,38 @@ run_with_node_or_bun() {
 
 run_go_executable() {
   local engine_name="$1"
-  local engine_command="$2"
-  local files="$3"
-  local version="$4"
+  local files="$2"
+  local version="$3"
 
   for file in $files; do
     base_name="$(basename "$file" .go)"
     dir_path="${file%/*}" # Get the directory path
 
     data_path=$(find "$dir_path" -type f -name "*.json" -print -quit)
-    exec_file=$(find "$dir_path" -type f -name "*.json" -print -quit)
+    exec_file=$(find "$dir_path" -type f -perm +111 -print -quit)
 
     echo
     echo "Running $exec_file with $engine_name... $version"
     echo
-
-    echo "Executable: $exec_file"
-    echo "Data: $data_path"
 
     # Check if an executable and data were found
     if [ -n "$exec_file" ] && [ -n "$data_path" ]; then
       data_path=$(realpath "$data_path") # Get the absolute path
 
       # output=$("$exec_file" "$data_path" 2>&1) # Run the executable
-       output=$(echo -e "$version\n$("$engine_command" "$file" "$data_path" 2>&1)")
+       output=$(echo -e "$version\n$("$exec_file" "$data_path" 2>&1)")
 
       # Display the output on the console
       echo "$output"
       echo
 
       # Save the output to a file (append mode)
-      output_filename="${base_name}.output.txt"
+      output_filename="${base_name}.go.txt"
       output_filepath="$dir_path/$output_filename"
       mkdir -p "$dir_path"
 
       echo -e "\n\n$output" >> "$output_filepath" # Append to the file
       echo "Output appended to: $output_filepath"
-    
-    elif [  -f "$exec_file" ]; then
-      echo "Executable found but data missing in $dir_path"
-    elif [  -f "$data_path" ]; then
-      echo "Data found but executable missing in $dir_path"
-      echo "$(ls -l "$dir_path")"
     else
       echo "Executable or data missing in $dir_path"
     fi
@@ -128,7 +119,7 @@ build_go_files(){
     base_name="$(basename "$file" .js)"
     echo "⚙️ Building go binary for $base_name"
     output_name="${file%.go}"
-    go build -o "$output_name.exe" "$file"
+    go build -o "$output_name" "$file"
   done
   echo "✅ Done building go binary"
 }
