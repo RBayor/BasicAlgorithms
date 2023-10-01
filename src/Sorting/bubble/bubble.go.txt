@@ -1,0 +1,36 @@
+
+
+engine_name: Golang, version: go version go1.21.1 darwin/amd64 🟢
+Array Size             100000
+Iterations             1
+Avg Creation Time (ms) 1.5598ms
+Avg Sort Time (s)      13.9292s
+Sort Times (s)         13.9292
+Sort Type              Bubble Sort
+Avg Sort Time (ms)     13929.2277ms
+Avg Creation Time (s)  0.0016s
+Creation Times (s)     0.0016
+
+
+engine_name: Golang, version: go version go1.21.1 darwin/amd64 🟢
+Avg Sort Time (ms)     13777.1822ms
+Avg Creation Time (s)  0.0014s
+Creation Times (s)     0.0020, 0.0015, 0.0011, 0.0016, 0.0012, 0.0014, 0.0011, 0.0014, 0.0011, 0.0014
+Avg Creation Time (ms) 1.3947ms
+Avg Sort Time (s)      13.7772s
+Sort Times (s)         13.8065, 13.7342, 13.7946, 13.8180, 13.7432, 13.7756, 13.7667, 13.7051, 13.9007, 13.7272
+Sort Type              Bubble Sort
+Array Size             100000
+Iterations             10
+
+
+engine_name: Golang, version: go version go1.21.1 darwin/amd64 🟢
+Sort Type              Bubble Sort
+Creation Times (s)     0.0013, 0.0017, 0.0014, 0.0017, 0.0011, 0.0015, 0.0011, 0.0015, 0.0011, 0.0014, 0.0011, 0.0014, 0.0011, 0.0016, 0.0011, 0.0014, 0.0011, 0.0014, 0.0011, 0.0014, 0.0012, 0.0014, 0.0011, 0.0014, 0.0011, 0.0014, 0.0011, 0.0016, 0.0011, 0.0017, 0.0015, 0.0024, 0.0013, 0.0015, 0.0013, 0.0017, 0.0011, 0.0015, 0.0011, 0.0018, 0.0011, 0.0017, 0.0011, 0.0014, 0.0011, 0.0016, 0.0018, 0.0014, 0.0011, 0.0015
+Sort Times (s)         13.8504, 13.6636, 13.7088, 13.7143, 13.7228, 13.8542, 13.7285, 13.6919, 13.7058, 13.7205, 13.7357, 13.5682, 13.7139, 13.7133, 13.7072, 13.6681, 13.7481, 13.6621, 13.8377, 13.7432, 13.7558, 13.7655, 13.7477, 13.7983, 13.7099, 13.6847, 13.6734, 13.7040, 13.6886, 13.7168, 13.6803, 13.7328, 13.7072, 13.7260, 13.6934, 13.6732, 13.7053, 13.8187, 13.7312, 13.7634, 13.7644, 13.6904, 13.7147, 13.8123, 13.6998, 13.8277, 13.8028, 13.7466, 13.7245, 13.7150
+Avg Sort Time (ms)     13728.6557ms
+Avg Creation Time (s)  0.0014s
+Avg Sort Time (s)      13.7287s
+Array Size             100000
+Iterations             50
+Avg Creation Time (ms) 1.3710ms
