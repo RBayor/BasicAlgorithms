@@ -22,6 +22,8 @@ Sort Times (s)         13.8065, 13.7342, 13.7946, 13.8180, 13.7432, 13.7756, 13.
 Sort Type              Bubble Sort
 Array Size             100000
 Iterations             10
+Mini Sort Time         13.7051
+Max  Sort Time         13.9007
 
 
 engine_name: Golang, version: go version go1.21.1 darwin/amd64 🟢
@@ -34,3 +36,5 @@ Avg Sort Time (s)      13.7287s
 Array Size             100000
 Iterations             50
 Avg Creation Time (ms) 1.3710ms
+Mini Sort Time         13.5682
+Max  Sort Time         13.8542
